@@ -1,54 +1,54 @@
 import { StylesType } from "./types";
 
-const emptyStyle = {};
+let emptyStyle = {};
 
-const baseHeaderStyles = {
+let baseHeaderStyles = {
   fontWeight: "500",
   paddingTop: 20,
 };
 
-const h1 = {
+let h1 = {
   ...baseHeaderStyles,
   fontSize: "2.5rem",
 };
 
-const h2 = {
+let h2 = {
   ...baseHeaderStyles,
   fontSize: "2rem",
 };
-const h3 = {
+let h3 = {
   ...baseHeaderStyles,
   fontSize: "1.75rem",
 };
-const h4 = {
+let h4 = {
   ...baseHeaderStyles,
   fontSize: "1.5rem",
 };
-const h5 = {
+let h5 = {
   ...baseHeaderStyles,
   fontSize: "1.25rem",
 };
-const h6 = {
+let h6 = {
   ...baseHeaderStyles,
   fontSize: "1rem",
 };
 
-const bold = {
+let bold = {
   fontWeight: "bold",
 };
 
-const italic = {
+let italic = {
   fontStyle: "italic",
 };
 
-const blockQuote = {
+let blockQuote = {
   background: "#f9f9f9",
   borderLeft: "10px solid #ccc",
   margin: "1.5em 10px",
   padding: "1em 10px",
 };
 
-const codeInline = {
+let codeInline = {
   color: "#212529",
   fontSize: "87.5%",
   display: "inline",
@@ -56,7 +56,7 @@ const codeInline = {
   fontFamily: `SFMono-Regular,Menlo,Monaco,Consolas,monospace`,
 };
 
-const codeBlock = {
+let codeBlock = {
   ...codeInline,
   paddingTop: 10,
   paddingRight: 10,
@@ -66,13 +66,13 @@ const codeBlock = {
   background: " #f8f8f8",
 };
 
-const link = {
+let link = {
   color: "#007bff",
   textDecoration: "underline",
   backgroundColor: "transparent",
 };
 
-export const styles: StylesType = {
+export let styles: StylesType = {
   h1,
   h2,
   h3,
