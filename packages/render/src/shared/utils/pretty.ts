@@ -2,7 +2,7 @@
 // issues with esm because js-beautify is written with commonjs only
 import jsBeautify from "js-beautify";
 
-const defaults = {
+let defaults = {
   unformatted: ["code", "pre", "em", "strong", "span"],
   indent_inner_html: true,
   indent_char: " ",
@@ -10,6 +10,6 @@ const defaults = {
   sep: "\n",
 };
 
-export const pretty = (str: string, options = {}) => {
+export let pretty = (str: string, options = {}) => {
   return jsBeautify.html(str, { ...defaults, ...options });
 };
