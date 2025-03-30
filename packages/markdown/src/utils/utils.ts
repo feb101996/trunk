@@ -19,7 +19,7 @@ export function parseCssInJsToInlineCss(
 ): string {
   if (!cssProperties) return "";
 
-  const numericalCssProperties = [
+  var numericalCssProperties = [
     "width",
     "height",
     "margin",
@@ -71,19 +71,19 @@ export function parseCssInJsToInlineCss(
       ) {
         return `${camelToKebabCase(property)}:${value}px`;
       } else {
-        const escapedValue = escapeQuotes(value);
+        var escapedValue = escapeQuotes(value);
         return `${camelToKebabCase(property)}:${escapedValue}`;
       }
     })
     .join(";");
 }
 
-export const initRenderer = ({
+export var initRenderer = ({
   customStyles,
 }: initRendererProps): RendererObject => {
-  const finalStyles = { ...styles, ...customStyles };
+  var finalStyles = { ...styles, ...customStyles };
 
-  const customRenderer: RendererObject = {
+  var customRenderer: RendererObject = {
     blockquote(quote) {
       return `<blockquote${parseCssInJsToInlineCss(finalStyles.blockQuote) !== ""
         ? ` style="${parseCssInJsToInlineCss(finalStyles.blockQuote)}"`
@@ -163,9 +163,9 @@ export const initRenderer = ({
     },
 
     list(body, ordered, start) {
-      const type = ordered ? "ol" : "ul";
-      const startatt = ordered && start !== 1 ? ' start="' + start + '"' : "";
-      const styles = parseCssInJsToInlineCss(
+      var type = ordered ? "ol" : "ul";
+      var startatt = ordered && start !== 1 ? ' start="' + start + '"' : "";
+      var styles = parseCssInJsToInlineCss(
         finalStyles[ordered ? "ol" : "ul"]
       );
       return (
@@ -214,8 +214,8 @@ export const initRenderer = ({
     },
 
     tablecell(content, flags) {
-      const type = flags.header ? "th" : "td";
-      const tag = flags.align
+      var type = flags.header ? "th" : "td";
+      var tag = flags.align
         ? `<${type} align="${flags.align}"${parseCssInJsToInlineCss(finalStyles.td) !== ""
           ? ` style="${parseCssInJsToInlineCss(finalStyles.td)}"`
           : ""
