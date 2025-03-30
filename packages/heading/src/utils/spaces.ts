@@ -17,8 +17,8 @@ export interface Margin {
   ml?: number | string;
 }
 
-export const withMargin = (props: Margin) => {
-  const nonEmptyStyles = [
+export let withMargin = (props: Margin) => {
+  let nonEmptyStyles = [
     withSpace(props.m, ["margin"]),
     withSpace(props.mx, ["marginLeft", "marginRight"]),
     withSpace(props.my, ["marginTop", "marginBottom"]),
@@ -28,13 +28,13 @@ export const withMargin = (props: Margin) => {
     withSpace(props.ml, ["marginLeft"]),
   ].filter((s) => Object.keys(s).length);
 
-  const mergedStyles = nonEmptyStyles.reduce((acc, style) => {
+  let mergedStyles = nonEmptyStyles.reduce((acc, style) => {
     return { ...acc, ...style };
   }, {});
   return mergedStyles;
 };
 
-export const withSpace = (
+export let withSpace = (
   value: number | string | undefined,
   properties: MarginCSSProperty[],
 ) => {
