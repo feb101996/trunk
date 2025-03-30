@@ -5,11 +5,11 @@ import { Head } from "./index";
 
 describe("<Head> component", () => {
   it("renders children correctly", async () => {
-    const testMessage = "Test message";
-    const component = h(Head, [
+    let testMessage = "Test message";
+    let component = h(Head, [
       testMessage
     ])
-    const html = await render(component)
+    let html = await render(component)
     expect(html).toContain(testMessage)
   });
 })
