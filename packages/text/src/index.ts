@@ -1,6 +1,6 @@
 import { defineComponent, h } from 'vue'
 
-export const Text = defineComponent({
+export let Text = defineComponent({
   name: 'Text',
   setup(_, { slots }) {
     return () => {
