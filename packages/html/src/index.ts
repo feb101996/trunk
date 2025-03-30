@@ -1,7 +1,7 @@
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
 
-export const Html = defineComponent({
+export let Html = defineComponent({
   name: 'Html',
   props: {
     lang: {
