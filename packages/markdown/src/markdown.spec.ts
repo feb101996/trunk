@@ -5,7 +5,7 @@ import { Markdown } from "./index";
 
 describe("<Markdown> component", () => {
   it("renders the markdown in the correct format for browsers", async () => {
-    const component = h(Markdown, {
+    let component = h(Markdown, {
       source: `# Markdown Test Document
 
 This is a **test document** to check the capabilities of a Markdown parser.
@@ -56,13 +56,13 @@ console.log(\`Hello, $\{name}!\`);
 \`\`\``
     })
 
-    const actualOutput = await render(component)
+    let actualOutput = await render(component)
 
     expect(actualOutput).toMatchSnapshot();
   });
 
   it("renders the headers in the correct format for browsers", () => {
-    const actualOutput = render(h(Markdown, {
+    let actualOutput = render(h(Markdown, {
       source: `
 # Heading 1!
 ## Heading 2!
@@ -79,7 +79,7 @@ console.log(\`Hello, $\{name}!\`);
   it("renders text in the correct format for browsers", () => {
 
 
-    const actualOutput = render(h(Markdown, {
+    let actualOutput = render(h(Markdown, {
       markdownCustomStyles: {
         bold: {
           font: '700 23px / 32px "Roobert PRO", system-ui, sans-serif',
@@ -94,14 +94,14 @@ console.log(\`Hello, $\{name}!\`);
   });
 
   it("renders links in the correct format for browsers", () => {
-    const actualOutput = render(h(Markdown, [
+    let actualOutput = render(h(Markdown, [
       'Link to [React-email](https://react.email)'
     ]));
     expect(actualOutput).toMatchSnapshot();
   });
 
   it("renders lists in the correct format for browsers", () => {
-    const actualOutput = render(h(Markdown, [
+    let actualOutput = render(h(Markdown, [
       `
 # Below is a list 
 
