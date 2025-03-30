@@ -6,12 +6,12 @@ import { Font } from "./index";
 describe("<Font> component", () => {
   it("renders with default props", async () => {
 
-    const component = h(Font, {
+    let component = h(Font, {
       fallbackFontFamily: 'Helvetica',
       fontFamily: 'Arial',
     })
 
-    const html = await render(component)
+    let html = await render(component)
 
     expect(html).toContain("font-style: normal;");
     expect(html).toContain("font-weight: 400;");
