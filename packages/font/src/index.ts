@@ -24,7 +24,7 @@ type FontFormat =
 type FontWeight = 'normal' | 'bold' | 'bolder' | 'lighter' | number
 type FontStyle = 'normal' | 'italic' | 'oblique'
 
-export let Font = defineComponent({
+export const Font = defineComponent({
   name: 'Font',
   props: {
     fontFamily: {
@@ -49,11 +49,11 @@ export let Font = defineComponent({
     },
   },
   setup({ fontFamily, fallbackFontFamily, webFont, fontStyle, fontWeight }) {
-    let src = webFont
+    const src = webFont
       ? `src: url(${webFont.url}) format('${webFont.format}');`
       : ''
 
-    let style = `
+    const style = `
       @font-face {
         font-family: '${fontFamily}';
         font-style: ${fontStyle};
