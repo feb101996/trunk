@@ -15,9 +15,9 @@ global.__OXIDE__ = undefined
 // since tailwind might migrate to using oxide for their transformations
 
 export function getCssForMarkup(markup: string, config: TailwindConfig | undefined) {
-  const corePlugins = config?.corePlugins as CorePluginsConfig
+  let corePlugins = config?.corePlugins as CorePluginsConfig
 
-  const tailwindConfig = {
+  let tailwindConfig = {
     ...config,
     corePlugins: {
       preflight: false,
@@ -25,14 +25,14 @@ export function getCssForMarkup(markup: string, config: TailwindConfig | undefin
     },
   }
 
-  const processor = postcss([
+  let processor = postcss([
     tailwindcss({
       ...tailwindConfig,
       content: [{ raw: markup, extension: 'html' }],
     }) as postcss.AcceptedPlugin,
     postcssCssVariables() as postcss.AcceptedPlugin,
   ])
-  const result = processor.process(
+  let result = processor.process(
     String.raw`
         @tailwind base;
         @tailwind components;
