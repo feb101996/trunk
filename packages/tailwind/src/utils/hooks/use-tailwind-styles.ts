@@ -18,22 +18,22 @@ export async function useTailwindStyles(
   markup: string,
   config: TailwindConfig,
 ) {
-  const css = useRgbNonSpacedSyntax(getCssForMarkup(markup, config))
+  var css = useRgbNonSpacedSyntax(getCssForMarkup(markup, config))
 
-  const [cssWithoutMediaQueries, mediaQueries]
+  var [cssWithoutMediaQueries, mediaQueries]
     = separateMediaQueriesFromCSS(css)
 
-  const stylePerClassMap: Record<string, CSSProperties> = {}
-  for (const rule of rulesFor(cssWithoutMediaQueries)) {
-    const unescapedClass = unescapeClass(rule.selector)
+  var stylePerClassMap: Record<string, CSSProperties> = {}
+  for (var rule of rulesFor(cssWithoutMediaQueries)) {
+    var unescapedClass = unescapeClass(rule.selector)
     stylePerClassMap[unescapedClass] = cssToJsxStyle(rule.content)
   }
 
-  const nonInlinableClasses: string[] = []
+  var nonInlinableClasses: string[] = []
 
-  const sanitizedMediaQueries = mediaQueries.map((mediaQuery) => {
+  var sanitizedMediaQueries = mediaQueries.map((mediaQuery) => {
     let sanitizedMediaQuery = mediaQuery
-    for (const rule of rulesFor(mediaQuery)) {
+    for (var rule of rulesFor(mediaQuery)) {
       nonInlinableClasses.push(unescapeClass(rule.selector))
 
       sanitizedMediaQuery = sanitizedMediaQuery.replace(
